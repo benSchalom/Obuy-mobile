@@ -6,6 +6,12 @@ export type ReponseJWT = {
   user_display_name:  string
 }
 
+export type ReponseAuth = {
+  utilisateur: Utilisateur
+  jeton: string
+  jetonRafraichissement: string
+}
+
 // Profil complet (wp/v2/users/me après connexion) 
 export type ProfilUtilisateur = {
   id:         number
