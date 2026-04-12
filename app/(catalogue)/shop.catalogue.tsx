@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
 } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { router, useLocalSearchParams } from 'expo-router'
 import { appConfig } from '../../config/appConfig'
 import Chargement from '../../composants/ui/Chargement.ui'
@@ -83,7 +84,7 @@ export default function EcranShop() {
   const triActuel = OPTIONS_TRI.find(o => o.valeur === filtres.tri)?.label || 'Par défaut'
 
   return (
-    <View style={styles.conteneur}>
+    <SafeAreaView style={styles.conteneur} edges={['top']}>
 
       {/* Header */}
       <View style={styles.header}>
@@ -179,7 +180,7 @@ export default function EcranShop() {
           )}
         </ScrollView>
       )}
-    </View>
+    </SafeAreaView>
   )
 }
 

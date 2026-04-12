@@ -9,6 +9,7 @@ import {
   Dimensions,
   Image,
 } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { router } from 'expo-router'
 import { appConfig } from '../../config/appConfig'
 import { useAuth } from '../../contextes/auth.contexte'
@@ -61,7 +62,8 @@ export default function EcranAccueil() {
   if (chargement) return <Chargement pleinEcran message="Chargement..." />
 
   return (
-    <ScrollView style={styles.conteneur} showsVerticalScrollIndicator={false}>
+    <SafeAreaView style={styles.conteneur} edges={['top']}>
+    <ScrollView showsVerticalScrollIndicator={false}>
 
       {/* Header */}
       <View style={styles.header}>
@@ -190,6 +192,7 @@ export default function EcranAccueil() {
       </View>
 
     </ScrollView>
+    </SafeAreaView>
   )
 }
 
