@@ -133,7 +133,7 @@ export default function EcranInscription() {
           {/* Titre */}
           <Text style={styles.titre}>Créez votre compte gratuit</Text>
           <Text style={styles.sousTitre}>
-            Rejoignez la marketplace africaine OBUY.
+            Rejoignez le marketplace africaine OBUY.
           </Text>
 
           {/* Onglets */}
