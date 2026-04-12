@@ -65,7 +65,7 @@ export default function InputObuy({
           onFocus={() => setEstFocus(true)}
           onBlur={()  => setEstFocus(false)}
           autoCapitalize={typeClavier === 'email-address' ? 'none' : 'sentences'}
-          autoCorrect={false}
+          autoCorrect={false as unknown as undefined}
         />
 
         {/* Toggle afficher/masquer mot de passe */}

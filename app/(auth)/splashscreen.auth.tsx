@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Image, StyleSheet, Dimensions } from 'react-native'
 import * as SplashScreen from 'expo-splash-screen'
 import { router } from 'expo-router'
@@ -12,16 +12,19 @@ const { width, height } = Dimensions.get('window')
 export default function SplashScreenAuth() {
   const { estConnecte, chargement } = useAuth()
 
+  const [pret, setPret] = useState(false)
+
   useEffect(() => {
+    const duree = appConfig.splash.dureeMs ?? 0
+    const timer = setTimeout(() => setPret(true), duree)
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Ne naviguer que quand les deux conditions sont remplies
+  useEffect(() => {
+    if (chargement || !pret) return
+
     async function gererNavigation() {
-      if (chargement) return
-
-      // Durée splash en dev, automatique en prod
-      const duree = appConfig.splash.dureeMs ?? 0
-      if (duree > 0) {
-        await new Promise(r => setTimeout(r, duree))
-      }
-
       await SplashScreen.hideAsync()
 
       if (estConnecte) {
@@ -32,7 +35,7 @@ export default function SplashScreenAuth() {
     }
 
     gererNavigation()
-  }, [chargement, estConnecte])
+  }, [chargement, estConnecte, pret])
 
   return (
     <View style={styles.conteneur}>
