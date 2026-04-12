@@ -1,14 +1,5 @@
-# OBUY Mobile — screens/catalogue
+# OBUY Mobile — dev
 
-Groupe catalogue produits.
+Branche de développement principal. Point de départ de toutes les branches de fonctionnalités.
 
-**Écrans contenus** :
-- Accueil
-- Shop / liste produits
-- Catégorie produits
-- Fiche produit
-- Recherche
-- Wishlist
-- Comparateur
-
-**Règle** : Les branches `feat/*` de ce groupe sont tirées d'ici.
+**Règle** : Ne jamais coder directement ici. Tout merge vers cette branche doit passer par `backup-dev` d'abord.

@@ -85,6 +85,7 @@ export default function EcranShop() {
 
   return (
     <SafeAreaView style={styles.conteneur} edges={['top']}>
+    <View style={{ flex: 1 }}>
 
       {/* Header */}
       <View style={styles.header}>
@@ -180,6 +181,7 @@ export default function EcranShop() {
           )}
         </ScrollView>
       )}
+    </View>
     </SafeAreaView>
   )
 }
